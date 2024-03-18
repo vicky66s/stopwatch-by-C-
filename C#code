@@ -1,0 +1,32 @@
+using System;
+
+class Stopwatch
+{
+    static void Main(string[] args)
+    {
+        char ch;
+        DateTime startTime = DateTime.MinValue;
+        DateTime endTime = DateTime.MinValue;
+
+        Console.WriteLine("Press 's' to start the stopwatch and 'e' to stop it:");
+
+        while (true)
+        {
+            ch = Console.ReadKey().KeyChar;
+
+            if (ch == 's' || ch == 'S')
+            {
+                startTime = DateTime.Now;
+                Console.WriteLine("\nStopwatch started.");
+            }
+            else if (ch == 'e' || ch == 'E')
+            {
+                endTime = DateTime.Now;
+                Console.WriteLine("\nStopwatch stopped.");
+                TimeSpan elapsedTime = endTime - startTime;
+                Console.WriteLine("Elapsed time: " + elapsedTime.TotalSeconds + " seconds");
+                break;
+            }
+        }
+    }
+}
